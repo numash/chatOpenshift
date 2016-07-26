@@ -16,6 +16,7 @@ var port = normalizePort(process.env.OPENSHIFT_NODEJS_PORT || '3000');
 var ip_address = normalizePort(process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1');
 //var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
+app.set('ip', ip_address);
 
 /**
  * Create HTTP server.
@@ -27,7 +28,7 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port, ip_address function () {
+server.listen(app.get('port'), app.get('ip'), function () {
   console.log( "Listening on " + ip_address + ", server_port " + port);
 });
 server.on('error', onError);
