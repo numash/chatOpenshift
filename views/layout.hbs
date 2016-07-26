@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+      <meta charset="utf-8">
+  </head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+  <script type="text/javascript" src="/javascripts/main.js" defer></script>
+  <script>
+      //var socket = io.connect('http://localhost:8080');
+	  var socket = io.connect('http://numashchat-somechat.rhcloud.com:8000');
+  </script>
+
+  <body>
+    {{{body}}}
+  </body>
+</html>

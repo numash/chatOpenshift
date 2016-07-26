@@ -1,0 +1,26 @@
+<div class="header-div">
+    <h2>Welcome, <span class="username">{{user.username}}</span>!</h2>
+    <a href="/signout" class="btn orange">Logout</a>
+</div>
+
+<div class="panel panel-default panel-body chatField" id="mainField">
+    <ul id="messagesField" class="list-group">
+        {{#each messages}}
+            <li class="list-group-item">{{author}}: {{message}}</li>
+        {{/each }}
+        <script type="x-handlebars-template">
+            var currentUser = {{{getAuthor messages}}};
+            console.log();
+        </script>
+    </ul>
+</div>
+
+<form id="messageForm">
+    <div class="input-group">
+        <input type="text" name="message" id="message" class="form-control" placeholder="Enter your message" aria-describedby="basic-addon2">
+        <input name="user" type="hidden" value="{{user.username}}">
+        <span class="input-group-btn">
+            <button type="submit" class="btn btn-default" id="basic-addon2">Send</button>
+        </span>
+    </div>
+</form>
