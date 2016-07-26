@@ -2,7 +2,7 @@ var express = require('express');
 var http = require('http');
 var app = express();
 var router = express.Router();
-var server = app.listen(8080);
+var server = app.listen(8000);
 
 var io = require('socket.io').listen(server);
 
