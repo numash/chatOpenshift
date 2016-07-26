@@ -10,7 +10,17 @@ var users = require('./routes/users');
 var app = express();
 
 //mongoose connect
-var dbConfig = require('./db.js');
+// default to a localhost configuration:
+var mongoConnectionString = 'mongodb://127.0.0.1/test';
+
+// if OPENSHIFT env variables are present, use the available connection info:
+if (process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
+  mongoConnectionString = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
+  process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
+  process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
+  process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
+  process.env.OPENSHIFT_APP_NAME;
+}
 var mongoose = require('mongoose');
 mongoose.connect(dbConfig.url);
 
